@@ -1,26 +1,47 @@
-<main class="card">
-    <h2>Welcome, Adventurer</h2>
-    <p>Your custom D&D backend is active and ready...</p>
-    
-    <div class="action-buttons">
-        <button id="loadSheetBtn" class="btn primary">View Example Sheet</button>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Dynamic Sheet Rendering Container -->
-    <div id="sheetContainer" style="margin-top: 30px; text-align: left;"></div>
-</main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open D&D Sheet</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a fantasy RPG aesthetic -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
 
-<script>
-    document.getElementById('loadSheetBtn').addEventListener('click', async () => {
-        const container = document.getElementById('sheetContainer');
-        container.innerHTML = "<p style='text-align:center;'>Loading character parchment...</p>";
+<body>
+    <div class="container">
+        <header>
+            <h1>Open D&D Sheet</h1>
+            <p class="subtitle">A homebrew-first, code-driven character sheet engine</p>
+        </header>
 
-        try {
-            const response = await fetch('/api/sheet/example');
-            const data = await response.json();
+        <main class="card">
+            <h2>Welcome, Adventurer</h2>
+            <p>Your custom D&D backend is active and ready...</p>
 
-            // Build dynamic HTML layout
-            let html = `
+            <div class="action-buttons">
+                <button id="loadSheetBtn" class="btn primary">View Example Sheet</button>
+            </div>
+
+            <!-- Dynamic Sheet Rendering Container -->
+            <div id="sheetContainer" style="margin-top: 30px; text-align: left;"></div>
+        </main>
+
+        <script>
+            document.getElementById('loadSheetBtn').addEventListener('click', async () => {
+                const container = document.getElementById('sheetContainer');
+                container.innerHTML = "<p style='text-align:center;'>Loading character parchment...</p>";
+
+                try {
+                    const response = await fetch('/api/sheet/example');
+                    const data = await response.json();
+
+                    // Build dynamic HTML layout
+                    let html = `
                 <div class="sheet-header" style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 20px;">
                     <h3 style="margin: 0; font-family: 'Cinzel', serif; font-size: 1.8rem; color: #fff;">${data.name}</h3>
                     <p style="margin: 5px 0 0 0; color: var(--text-muted);">Health: <strong>${data.health.current} / ${data.health.max}</strong></p>
@@ -28,8 +49,8 @@
                 <div class="stats-grid" style="display: grid; gap: 15px;">
             `;
 
-            data.stats.forEach(stat => {
-                html += `
+                    data.stats.forEach(stat => {
+                        html += `
                     <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 15px; border-radius: 6px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span style="font-family: 'Cinzel', serif; font-weight: bold; font-size: 1.1rem; color: #f3f3f5;">${stat.name}</span>
@@ -42,12 +63,20 @@
                         </div>
                     </div>
                 `;
-            });
+                    });
 
-            html += `</div>`;
-            container.innerHTML = html;
-        } catch (err) {
-            container.innerHTML = "<p style='color: #ff6b6b;'>Failed to load example sheet data.</p>";
-        }
-    });
-</script>
+                    html += `</div>`;
+                    container.innerHTML = html;
+                } catch (err) {
+                    container.innerHTML = "<p style='color: #ff6b6b;'>Failed to load example sheet data.</p>";
+                }
+            });
+        </script>
+
+        <footer>
+            <p>Powered by Node.js & GitHub Automations</p>
+        </footer>
+    </div>
+</body>
+
+</html>
