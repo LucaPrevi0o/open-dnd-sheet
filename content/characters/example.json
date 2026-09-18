@@ -5,6 +5,11 @@
         "max": 32
     },
     "stats": {
-        "dexterity": 16
+        "dexterity": 16,
+        "strength": 12,
+        "constitution": 14,
+        "intelligence": 10,
+        "wisdom": 13,
+        "charisma": 8
     }
 }
