@@ -97,6 +97,94 @@ header h1 {
     background-color: var(--border-color);
 }
 
+.sheet-container {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.sheet-header {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sheet-header h3 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.sheet-header p {
+    margin: 5px 0 0 0;
+    color: var(--text-muted);
+}
+
+.stats-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.stat-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-name {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #f3f3f5;
+}
+
+.modifier {
+    background: var(--accent-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.score {
+    margin: 5px 0 10px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.abilities-list {
+    font-size: 0.85rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 8px;
+}
+
+.abilities-label {
+    color: var(--text-muted);
+}
+
+.ability {
+    display: inline-block;
+    background: #252530;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+.sheet-message {
+    text-align: center;
+}
+
+.sheet-error {
+    color: #ff6b6b;
+}
+
 footer {
     margin-top: 30px;
     font-size: 0.85rem;
