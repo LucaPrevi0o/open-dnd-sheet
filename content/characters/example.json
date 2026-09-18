@@ -11,5 +11,9 @@
         "intelligence": 10,
         "wisdom": 13,
         "charisma": 8
+    },
+    "proficiencies": {
+        "skills": ["stealth", "sleight_of_hand"],
+        "savingThrows": ["dexterity", "intelligence"]
     }
 }
