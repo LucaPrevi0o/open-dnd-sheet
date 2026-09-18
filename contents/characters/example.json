@@ -1,0 +1,10 @@
+{
+    "name": "Lyra Swiftrunner",
+    "health": {
+        "current": 32,
+        "max": 32
+    },
+    "stats": {
+        "dexterity": 16
+    }
+}
