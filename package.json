@@ -1,0 +1,13 @@
+{
+  "name": "open-dnd-sheet",
+  "version": "1.0.0",
+  "description": "Open D&D Sheet - Custom D&D character sheet and homebrew server",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
