@@ -170,11 +170,51 @@ header h1 {
 }
 
 .ability {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     background: #252530;
-    padding: 2px 6px;
+    padding: 5px 6px;
     border-radius: 3px;
-    margin: 2px;
+    margin-top: 5px;
+}
+
+.ability-name {
+    flex: 1;
+}
+
+.skill-status {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+}
+
+.ability-modifier {
+    min-width: 24px;
+    text-align: right;
+}
+
+.saving-throws-list {
+    margin-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 8px;
+    font-size: 0.85rem;
+}
+
+.saving-throw {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.saving-throw > span:first-child {
+    flex: 1;
+}
+
+.empty-state {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-muted);
 }
 
 .sheet-message {

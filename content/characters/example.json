@@ -4,6 +4,7 @@
         "current": 32,
         "max": 32
     },
+    "proficiencyBonus": 2,
     "stats": {
         "dexterity": 16,
         "strength": 12,
@@ -14,6 +15,7 @@
     },
     "proficiencies": {
         "skills": ["stealth", "sleight_of_hand"],
+        "expertise": ["stealth"],
         "savingThrows": ["dexterity", "intelligence"]
     }
 }
