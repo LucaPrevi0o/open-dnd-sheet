@@ -72,14 +72,17 @@ export function compileSavingThrows(character, statConfigs) {
         .map(config => {
             const baseModifier = config.calculateModifier(character.stats[config.id]);
             const proficient = getProficiencies(character).savingThrows?.includes(config.id) || false;
-            const modifier = baseModifier + (proficient ? getProficiencyBonus(character) : 0);
+            const expertise = getProficiencies(character).expertise?.includes(config.id) || false;
+            const proficiencyMultiplier = expertise ? 2 : proficient ? 1 : 0;
+            const modifier = baseModifier + (getProficiencyBonus(character) * proficiencyMultiplier);
 
             return {
                 id: config.id,
                 name: config.name,
                 color: config.color,
                 modifier: formatModifier(modifier),
-                proficient
+                proficient,
+                expertise
             };
         });
 }

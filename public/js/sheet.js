@@ -10,9 +10,12 @@ function renderSkill(skill) {
 }
 
 function renderSavingThrow(savingThrow) {
+    const status = savingThrow.expertise ? 'expertise' : savingThrow.proficient ? 'proficient' : 'untrained';
+
     return `
         <div class="saving-throw" style="--stat-color: ${savingThrow.color}">
             <span>Saving throw</span>
+            <span class="proficiency-indicator ${status}" title="${status}"></span>
             <strong class="ability-modifier">${savingThrow.modifier}</strong>
         </div>`;
 }
