@@ -230,12 +230,6 @@ header h1 {
     flex: 1;
 }
 
-.skill-status {
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-}
-
 .ability-modifier {
     min-width: 29px;
     text-align: right;
@@ -246,30 +240,40 @@ header h1 {
     font-size: 0.76rem;
 }
 
-.saving-throws-section {
-    margin-top: 16px;
-}
-
-.saving-throws-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px;
-    margin-top: 8px;
-    border-top: 1px dashed var(--border-color);
-    padding-top: 8px;
-    font-size: 0.85rem;
-}
-
 .saving-throw {
     display: flex;
     align-items: center;
     gap: 6px;
-    border-left: 3px solid var(--stat-color);
-    padding-left: 5px;
+    margin-top: 7px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.68rem;
 }
 
 .saving-throw > span:first-child {
     flex: 1;
+}
+
+.proficiency-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    flex: 0 0 10px;
+    border: 1px solid var(--text-muted);
+    background: transparent;
+}
+
+.proficiency-indicator.proficient {
+    border-color: var(--stat-color);
+    background: var(--stat-color);
+    border-radius: 50%;
+}
+
+.proficiency-indicator.expertise {
+    border: 0;
+    background: var(--stat-color);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
 .empty-state {
@@ -302,9 +306,6 @@ header h1 {
         gap: 8px;
     }
 
-    .saving-throws-list {
-        grid-template-columns: 1fr;
-    }
 }
 
 .sheet-message {
