@@ -32,6 +32,8 @@ export function compileStats(character, statConfigs) {
         return [{
             id: config.id,
             name: config.name,
+            abbreviation: config.abbreviation,
+            color: config.color,
             score,
             modifier: formatModifier(rawModifier),
             savingThrow: config.savingThrow === true,
@@ -55,6 +57,7 @@ export function compileSkills(character, statConfigs) {
                 name: ability.name,
                 abilityId: config.id,
                 abilityName: config.name,
+                abilityColor: config.color,
                 modifier: formatModifier(modifier),
                 proficient,
                 expertise
@@ -74,6 +77,7 @@ export function compileSavingThrows(character, statConfigs) {
             return {
                 id: config.id,
                 name: config.name,
+                color: config.color,
                 modifier: formatModifier(modifier),
                 proficient
             };

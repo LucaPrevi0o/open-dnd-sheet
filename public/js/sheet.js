@@ -3,7 +3,7 @@ function renderSkill(skill) {
     const statusMarkup = status ? `<span class="skill-status">${status}</span>` : '';
 
     return `
-        <div class="ability">
+        <div class="ability" style="--stat-color: ${skill.abilityColor}">
             <span class="ability-name">${skill.name}</span>
             ${statusMarkup}
             <strong class="ability-modifier">${skill.modifier}</strong>
@@ -15,33 +15,42 @@ function renderSavingThrow(savingThrow) {
     const statusMarkup = status ? `<span class="skill-status">${status}</span>` : '';
 
     return `
-        <div class="saving-throw">
+        <div class="saving-throw" style="--stat-color: ${savingThrow.color}">
             <span>Saving throw</span>
             ${statusMarkup}
             <strong class="ability-modifier">${savingThrow.modifier}</strong>
         </div>`;
 }
 
-function renderStat(stat, skills, savingThrows) {
-    const statSkills = skills
-        .filter(skill => skill.abilityId === stat.id)
-        .map(renderSkill)
-        .join('');
-    const savingThrow = savingThrows.find(item => item.id === stat.id);
-
+function renderStat(stat) {
     return `
-        <div class="stat-box">
-            <div class="stat-heading">
-                <span class="stat-name">${stat.name}</span>
-                <span class="modifier">${stat.modifier}</span>
-            </div>
-            <p class="score">Score: ${stat.score}</p>
-            <div class="abilities-list">
-                <span class="abilities-label">Skills</span>
-                ${statSkills || '<span class="empty-state">No associated skills</span>'}
-            </div>
-            ${savingThrow ? `<div class="saving-throws-list">${renderSavingThrow(savingThrow)}</div>` : ''}
+        <div class="stat-box" style="--stat-color: ${stat.color}">
+            <span class="stat-abbreviation">${stat.abbreviation}</span>
+            <span class="stat-score">${stat.score}</span>
+            <span class="modifier">${stat.modifier}</span>
+            <span class="stat-name">${stat.name}</span>
         </div>`;
+}
+
+function renderSkillSidebar(data) {
+    return `
+        <aside class="skills-sidebar">
+            <div class="sidebar-heading">
+                <h4>Skills</h4>
+                <span>Modifiers</span>
+            </div>
+            <div class="skills-list">${data.skills.map(renderSkill).join('')}</div>
+        </aside>`;
+}
+
+function renderSavingThrows(data) {
+    return `
+        <section class="saving-throws-section">
+            <div class="section-heading">
+                <h4>Saving Throws</h4>
+            </div>
+            <div class="saving-throws-list">${data.savingThrows.map(renderSavingThrow).join('')}</div>
+        </section>`;
 }
 
 function renderSheet(data) {
@@ -50,7 +59,13 @@ function renderSheet(data) {
             <h3>${data.name}</h3>
             <p>Health: <strong>${data.health.current} / ${data.health.max}</strong></p>
         </div>
-        <div class="stats-grid">${data.stats.map(stat => renderStat(stat, data.skills, data.savingThrows)).join('')}</div>`;
+        <div class="sheet-layout">
+            ${renderSkillSidebar(data)}
+            <div class="sheet-main">
+                <div class="stats-grid">${data.stats.map(renderStat).join('')}</div>
+                ${renderSavingThrows(data)}
+            </div>
+        </div>`;
 }
 
 async function loadExampleSheet(container) {
