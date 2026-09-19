@@ -1,6 +1,8 @@
 export default {
     id: "wisdom",
     name: "Wisdom",
+    abbreviation: "WIS",
+    color: "#65a30d",
     abilities: [
         { id: "animal_handling", name: "Animal Handling" },
         { id: "insight", name: "Insight" },

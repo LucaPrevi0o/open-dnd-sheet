@@ -1,6 +1,8 @@
 export default {
     id: "dexterity",
     name: "Dexterity",
+    abbreviation: "DEX",
+    color: "#0d9488",
     abilities: [
         { id: "acrobatics", name: "Acrobatics" },
         { id: "sleight_of_hand", name: "Sleight of Hand" },

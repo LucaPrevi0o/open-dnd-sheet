@@ -1,6 +1,8 @@
 export default {
     id: "charisma",
     name: "Charisma",
+    abbreviation: "CHA",
+    color: "#c026d3",
     abilities: [
         { id: "deception", name: "Deception" },
         { id: "intimidation", name: "Intimidation" },

@@ -1,6 +1,8 @@
 export default {
     id: "constitution",
     name: "Constitution",
+    abbreviation: "CON",
+    color: "#dc2626",
     abilities: [],
     savingThrow: true,
     calculateModifier: function(score) {

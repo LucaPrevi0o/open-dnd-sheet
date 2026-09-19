@@ -1,6 +1,8 @@
 export default {
     id: "strength",
     name: "Strength",
+    abbreviation: "STR",
+    color: "#d97706",
     abilities: [
         { id: "athletics", name: "Athletics" }
     ],

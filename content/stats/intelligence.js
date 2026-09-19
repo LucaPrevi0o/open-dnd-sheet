@@ -1,6 +1,8 @@
 export default {
     id: "intelligence",
     name: "Intelligence",
+    abbreviation: "INT",
+    color: "#2563eb",
     abilities: [
         { id: "arcana", name: "Arcana" },
         { id: "history", name: "History" },
