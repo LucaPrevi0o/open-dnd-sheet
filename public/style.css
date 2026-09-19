@@ -22,7 +22,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 960px;
+    max-width: 1460px;
     padding: 20px;
     text-align: center;
 }
@@ -132,6 +132,7 @@ header h1 {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
+    max-width: 200px;
 }
 
 .sidebar-heading,
@@ -221,7 +222,6 @@ header h1 {
     align-items: center;
     gap: 6px;
     background: #252530;
-    border-left: 3px solid var(--stat-color);
     padding: 6px 5px;
     border-radius: 3px;
 }
